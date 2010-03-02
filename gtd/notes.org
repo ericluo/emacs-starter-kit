@@ -1,0 +1,104 @@
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+STARTUP: logdone
+#+TAGS: { @OFFICE(o) @HOME(h) } @PHONE(p) @COMPUTER(c)
+#+TAGS: 系统维护(a) 固定资产管理(e) 科技监管(r) 设备维护(m) 私事(b)
+#+SEQ_TODO: TODO(t) STARTED(s) WAITING(w) APPT(a) | DONE(d) CANCELLED(c) DEFERRED(f)
+#+COLUMNS: %25ITEM %10PRIORITY %f15TODO %40TAGS
+ 
+* ubuntu服务器的安装
+** IP地址的设置
+
+   首先，激活服务器的网卡：
+   sudo emacs /etc/network/interfaces
+
+   并在interfaces中添加以下内容：
+
+   auto etho iface etho inet static
+   address 192.168.1.16 
+   netmask 255.255.255.0 
+   gateway 192.168.1.254
+
+   然后修改resolv.conf配置DNS服务器的地址：
+
+   sudo emacs /etc/resolv.conf
+
+   在该文件中添加如下内容：
+
+   nameserver 202.103.24.68
+
+   完成后，重启networking服务：(如果使用ADSL上网，还需要设置pppoe等)
+
+   sudo /etc/init.d/networking restart
+        
+** 安装OpenSSH服务器
+
+   首先，安装openssh-server sudo apt-get install openssh-server。首先，
+   您刚才实验远程登录的时候可能会发现，在输入完用户名后需要等很长一段时
+   间才会提示输入密码。其实这是由于 sshd 需要反查客户端的 dns 信息导致
+   的。我们可以通过禁用这个特性来大幅提高登录的速度。首先，打开
+   sshd_config 文件：
+
+   sudo nano /etc/ssh/sshd_config
+
+   在sshd_config最后一行加上
+   
+   UseDNS no
+
+   然后重新启动 ssh 服务即可：
+
+   sudo /etc/init.d/ssh restart
+
+** 利用 PuTTy 通过证书认证登录服务器
+
+   SSH 服务中，所有的内容都是加密传输的，安全性基本有保证。但是如果能使用
+   证书认证的话，安全性将会更上一层楼，而且经过一定的设置，还能实现证书认
+   证自动登录的效果。
+
+   首先修改 sshd_config 文件，开启证书认证选项：
+
+   RSAAuthentication yes
+   PubkeyAuthentication yes
+   AuthorizedKeysFile %h/.ssh/authorized_keys
+
+   修改完成后重新启动 ssh 服务。
+
+   下一步我们需要为 SSH 用户建立私钥和公钥。首先要登录到需要建立密钥的账
+   户下，这里注意退出 root 用户，需要的话用 su 命令切换到其它用户下。然后
+   运行：
+
+   ssh-keygen
+
+   这里，我们将生成的 key 存放在默认目录下即可。建立的过程中会提示输入
+   passphrase，这相当于给证书加个密码，也是提高安全性的措施，这样即使证书
+   不小心被人拷走也不怕了。当然如果这个留空的话，后面即可实现 PuTTy 通过
+   证书认证的自动登录。
+
+   ssh-keygen 命令会生成两个密钥，首先我们需要将公钥改名留在服务器上：
+
+   cd ~/.ssh
+   mv id_rsa.pub authorized_keys
+
+   然后将私钥 id_rsa 从服务器上复制出来，并删除掉服务器上的 id_rsa 文件。
+
+   服务器上的设置就做完了，下面的步骤需要在客户端电脑上来做。首先，我们需
+   要将 id_rsa 文件转化为 PuTTy 支持的格式。这里我们需要利用 PuTTyGEN 这个
+   工具：
+
+   点击 PuTTyGen 界面中的 Load 按钮，选择 id_rsa 文件，输入passphrase（如
+   果有的话），然后再点击 Save PrivateKey 按钮，这样 PuTTy接受的私钥就做好
+   了。
+
+   打开 PuTTy，在 Session 中输入服务器的 IP 地址，在Connection->SSH->Auth
+   下点击 Browse 按钮，选择刚才生成好的私钥。然后回到 Connection 选项，在
+   Auto-login username 中输入证书所属的用户名。回到 Session 选项卡，输入个
+   名字点 Save 保存下这个 Session。点击底部的Open 应该就可以通过证书认证登
+   录到服务器了。如果有 passphrase 的话，登录过程中会要求输入 passphrase，
+   否则将会直接登录到服务器上，非常的方便。
+
+* Emacs使用技巧
+** Mark Ring使用
+   
+   在buffer之内Emacs会默认保留16个跳转Mark，在Mark之间进行跳转时使用
+   C-u M-@来进行设置。通过设置`set-mark-command-repeat-pop'为non-nil,可
+   以在第一次使用C-u M-@跳转后，接着使用M-@来进行跳转。

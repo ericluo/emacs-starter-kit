@@ -1,0 +1,8 @@
+source ~/.screenrc
+
+chdir ~/workspace/snake
+screen -t server 1 
+screen -t vim 2 
+screen -t shell 3
+screen -t irb 4 
+screen -t log 5 

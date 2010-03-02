@@ -1,0 +1,90 @@
+# detach on sig HUP
+autodetach on
+nonblock on
+
+escape ^]] 
+# Utf-8
+setenv LC_CTYPE zh_CN.UTF-8
+defutf8 on
+
+term xterm
+
+# restore window contents after vi
+altscreen on
+
+# dont display copyright
+startup_message off
+
+msgwait 2
+vbell_msg "[[[ ding ]]]"
+
+defscrollback 10000
+
+silencewait 15
+
+version
+autodetach on
+
+sorendition "-b dw"
+
+caption splitonly "%{= K.}%-LW %{= BW}%50>[%n] %t %{-}%+Lw%<"
+hardstatus on
+hardstatus alwayslastline
+# some alternatives to try out
+# hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kC}%?%-Lw%?%{r}(%{G}%n*%f %t%?(%u)%?%{r})%{C}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+# hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+# hardstatus string '%{= mK}%-Lw%{= KW}%50>%n%f* %t%{= mK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+# hardstatus string '%-Lw%{= KW}%50>%n%f* %t%{-}%+Lw%<'
+# hardstatus string '%{= KW}%-w%{= WK}%n zsh%{-}%+w'
+# hardstatus string "%{=b dw}%{=b dw}[ %h ] [ %= %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}%{=b dw}] [ %{-b dw}Load%{+b dk}: %{-b dc}%l %{=b dw}] [ %{-b dw}%{-b dc}%D %M %d %c:%s %Y%{=b dw} ]"
+# hardstatus string "%{=b dw}%{=b dw}[ %{-b dc}%h%{=b dw} ] [ %= %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}%{=b dw}] [%{-b dw} %1`%{=b dw} ]"
+# hardstatus string "%{+b d%{+b dw}[%{-b dg} %0C:%s%a %{=b dk}]-[ %{-b dw}Load%{+b dk}:%{-b dg}%l %{+b dk}] %h"
+# hardstatus string "%{=b kW}[ %{= Y}$USER @ %H %{b W}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{b W}][%{= Y} %m/%d/%y %{Y}%C %{b W}]"
+# hardstatus string "%{=b kW}[ %{= Y}$USER @ %H %{b W}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{b W}][%{= Y} %l %{b W}][%{= Y} %d/%m %{Y}%c %{b W}]"
+hardstatus string '%02d/%02m %0c %-w%{=b dd}[%n] %t %{-}%+w %= %h'
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+defhstatus "screen ^E (^et) | $USER@^EH"
+hardstatus off
+#
+
+multiuser on
+idle 600
+blankerprg fortune
+# always use a login shell (the - means login shell)
+shell -$SHELL
+shelltitle '$ |bash'
+
+# make ctrl-left/right go to next/prev
+bindkey "^[[D" prev
+bindkey "^[[C" next
+
+# make pgup/down work in copy mode
+termcapinfo xterm ti@:te@
+bindkey -m -k kP stuff ^U
+bindkey -m -k kN stuff ^D
+
+# resize split windows
+bind = resize =
+bind + resize +2
+bind - resize -2
+
+# evil keybindings - go away!
+bind k
+bind W
+bind ^k
+bind .
+#bind ^\
+#bind \\
+bind ^h
+bind h
+bind ^Q
+bind q
+bind ^S
+bind s
+
+# make them safer
+bind K kill
+bind W windowlist
+bind I login on
+bind O login off
+bind } history

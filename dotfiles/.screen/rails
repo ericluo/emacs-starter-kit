@@ -1,0 +1,11 @@
+source ../.screenrc
+
+chdir ~/workspace/cims
+screen -t vim 0 vim README 
+screen -t log 1 tail -f log/development.log
+screen -t shell 2
+
+bind V select 0
+bind L select 1
+bind T select 2
+

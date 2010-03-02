@@ -1,0 +1,17 @@
+source ~/.screenrc
+
+chdir ~/workspace/cims
+screen -t server 0
+screen -t vim 1
+screen -t shell 2
+screen -t autotest 3
+screen -t log 4 tail -f log/development.log
+
+select 1
+
+# split
+# select 0
+# focus
+# select 2
+# resize 5
+# focus

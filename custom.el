@@ -12,10 +12,19 @@
 (setq org-remember-templates
       '(("Task" ?t "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Task")
         ("Administrator" ?a "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Administrator")
-        ("Maintance" ?e "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Maintance")
+        ("Maintance" ?m "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Maintance")
         ("Regulatory" ?r "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Regulatory")
-        ("Asset" ?f "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Asset")
+        ("Asset" ?a "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Asset")
         ("Private" ?p "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Private")
         ("Inbox" ?i "* %^{Topic} \n\%i%?\n" org-default-notes-file "Inbox")
+        ("Finance" ?f "* %^{Topic} \n\%i%?\n" org-default-notes-file "Finance")
         ("Note" ?n "\n* %U %^{Note} \n\%i%?\n" (concat org-directory "/notes.org"))))
 
+;; display ansi color in emacs shell
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;;
+(setq set-mark-command-repeat-pop t)
+
+(setq gnus-init-file (concat dotfiles-dir "/.gnus"))
+(setq bbdb-file (concat dotfiles-dir "/.bbdb"))
