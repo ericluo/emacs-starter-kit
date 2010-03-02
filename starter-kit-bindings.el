@@ -99,6 +99,7 @@
 ;; Org
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c r") 'org-remember)
 
 (provide 'starter-kit-bindings)
 ;;; starter-kit-bindings.el ends here
@@ -108,4 +109,3 @@
 (global-set-key (kbd "C-c C-v") 'view-mode)
 (global-set-key (kbd "C-c C-z") 'pop-global-mark)
 (global-set-key (kbd "C-c C-o") 'occur)
-
