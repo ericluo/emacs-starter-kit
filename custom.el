@@ -27,7 +27,7 @@
 (setq org-agenda-files (list (concat org-directory "gtd.org")))
 (setq org-remember-templates
       '(("Task" ?t "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Task")
-        ("Administrator" ?a "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Administrator")
+        ("Application" ?y "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Application")
         ("Maintance" ?m "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Maintance")
         ("Regulatory" ?r "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Regulatory")
         ("Asset" ?a "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Asset")
@@ -44,3 +44,6 @@
 
 (setq gnus-init-file (concat dotfiles-dir ".gnus"))
 (setq bbdb-file (concat dotfiles-dir ".bbdb"))
+
+(add-to-list 'load-path (concat dotfiles-dir "rinari"))
+(require 'rinari)
