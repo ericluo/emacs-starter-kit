@@ -7,6 +7,7 @@
 #+COLUMNS: %25ITEM %10PRIORITY %f15TODO %40TAGS
  
 * ubuntu服务器的安装
+
 ** IP地址的设置
 
    首先，激活服务器的网卡：
@@ -96,7 +97,14 @@
    录到服务器了。如果有 passphrase 的话，登录过程中会要求输入 passphrase，
    否则将会直接登录到服务器上，非常的方便。
 
+
+** 安装Putty Session Manager
+
+   通过安装Putty Session Manager(PSM)后，PSM可以开机时自动启动，并且可
+   以管理Putty的Session，可以设置快捷键来快速启动Putty Sessions。
+
 * Emacs使用技巧
+
 ** Mark Ring使用
    
    在buffer之内Emacs会默认保留16个跳转Mark，在Mark之间进行跳转时使用
@@ -106,7 +114,9 @@
 ** Magit
 
    [[http://zagadka.vim.bytemark.co.uk/magit/magit.html][Magit User Manual]]
+
 * Ruby的安装与使用
+
 ** Ruby的安装
 
    在ubuntu中，通过apt-get来安装系统ruby1.9包(因为ruby1.9自身已经包含
