@@ -27,7 +27,7 @@
 (setq org-agenda-files (list (concat org-directory "gtd.org")))
 (setq org-remember-templates
       '(("Task" ?t "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Task")
-        ("Administrator" ?a "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Administrator")
+        ("Application" ?y "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Application")
         ("Maintance" ?m "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Maintance")
         ("Regulatory" ?r "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Regulatory")
         ("Asset" ?a "* TODO %^{Topic} \n%i%?\n" org-default-notes-file "Asset")
@@ -44,3 +44,41 @@
 
 (setq gnus-init-file (concat dotfiles-dir ".gnus"))
 (setq bbdb-file (concat dotfiles-dir ".bbdb"))
+
+(add-to-list 'load-path (concat dotfiles-dir "rinari"))
+(require 'rinari)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-options-version "2.32"))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
+(require 'anything-config)
+
+(defun ericluo-anything ()
+  (interactive)
+  (anything-other-buffer
+   '(anything-c-source-file-name-history
+     anything-c-source-files-in-current-dir
+     ;; anything-c-source-find-files
+     anything-c-source-recentf
+     anything-c-source-man-pages
+     anything-c-source-info-pages
+     anything-c-source-bookmarks
+     anything-c-source-imenu
+     anything-c-source-ctags
+     anything-c-source-kill-ring
+     anything-c-source-global-mark-ring
+     anything-c-source-org-headline
+     anything-c-source-bbdb
+     anything-c-source-occur)
+   " *ericluo-anything*" ))
+
+(global-set-key (kbd "M-X") 'ericluo-anything)
