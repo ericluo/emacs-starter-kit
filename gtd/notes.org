@@ -102,3 +102,7 @@
    在buffer之内Emacs会默认保留16个跳转Mark，在Mark之间进行跳转时使用
    C-u M-@来进行设置。通过设置`set-mark-command-repeat-pop'为non-nil,可
    以在第一次使用C-u M-@跳转后，接着使用M-@来进行跳转。
+
+** Magit
+
+   [[http://zagadka.vim.bytemark.co.uk/magit/magit.html][Magit User Manual]]
