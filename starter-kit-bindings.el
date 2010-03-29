@@ -3,7 +3,8 @@
 ;; Part of the Emacs Starter Kit.
 
 ;; You know, like Readline.
-(global-set-key (kbd "C-M-h") 'backward-kill-word)
+(global-set-key (kbd "C-w") 'backward-kill-word)
+(global-set-key (kbd "C-x C-h") 'kill-region)
 
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
