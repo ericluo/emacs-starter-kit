@@ -19,12 +19,11 @@
   '(progn
      (color-theme-arjen)))
 
+(require 'org-install)
 (org-remember-insinuate)
+(setq org-use-speed-commands t)
 (setq org-directory (concat dotfiles-dir "gtd" "/"))
-(setq org-default-notes-file (concat org-directory "gtd.org"))
-
-
-(setq org-agenda-files (list (concat org-directory "gtd.org")))
+(setq org-default-notes-file (concat org-directory "gtd.org.gpg"))
 (setq org-remember-templates
       '(("Task" ?t "* TODO %^{Topic} \n%i%?\n%t\n" org-default-notes-file "Task")
         ("Application" ?y "* TODO %^{Topic} \n%i%?\n%t\n" org-default-notes-file "Application")
@@ -52,7 +51,9 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(ecb-options-version "2.32"))
+ '(ecb-options-version "2.32")
+ '(org-agenda-files (quote ("~/.emacs.d/gtd/gtd.org.gpg")))
+ '(org-special-ctrl-a/e t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
