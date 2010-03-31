@@ -20,7 +20,6 @@
         ("Finance" ?f "* TODO %^{Topic} \n\%i%?\n%t\n" org-default-notes-file "Finance")
         ("Inbox" ?i "* %^{Topic} \n\%i%?\n%t\n" org-default-notes-file "Inbox")
         ("Note" ?n "\n* %U %^{Note} \n\%i%?\n%t\n" (concat org-directory "notes.org"))))
-(setq org-agenda-files "~/.emacs.d/gtd/gtd.org.gpg")
 (setq org-special-ctrl-a/e t)
 
 (provide 'starter-kit-org)
