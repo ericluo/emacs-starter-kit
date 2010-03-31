@@ -115,13 +115,12 @@
 
    [[http://zagadka.vim.bytemark.co.uk/magit/magit.html][Magit User Manual]]
 
-
 ** Fold
 
    在使用fold-dwim来作fold的时候，需要打开hs-minor-mode，
    outline-minor-mode，或folding-mode。可以通过3个通用的命令来进行
-   folding。分别为
-   fold-dwim-toggle，fold-dwim-hide-all，fold-dwim-show-all。
+   folding。分别为fold-dwim-toggle， fold-dwim-hide-all，
+   fold-dwim-show-all。
 
 * Ruby的安装与使用
 
