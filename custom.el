@@ -13,6 +13,9 @@
 ;;
 (setq set-mark-command-repeat-pop t)
 
+(eval-after-load 'command-frequency
+  '(command-frequency-mode 1))
+
 (setq gnus-init-file (concat dotfiles-dir ".gnus"))
 
 (add-to-list 'load-path (concat dotfiles-dir "rinari"))
