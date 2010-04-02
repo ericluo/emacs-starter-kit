@@ -23,7 +23,7 @@
 
 (setq org-archive-location ".archive/%s::")
 (setq org-directory (concat dotfiles-dir "gtd" "/"))
-(setq org-default-notes-file (concat org-directory "gtd.org.gpg"))
+(setq org-default-notes-file (concat org-directory "gtd.org"))
 (setq org-remember-templates
       '(("Task" ?t "* TODO %^{Topic} \n%i%?\n%t\n" org-default-notes-file "Task")
         ("Application" ?y "* TODO %^{Topic} \n%i%?\n%t\n" org-default-notes-file "Application")
