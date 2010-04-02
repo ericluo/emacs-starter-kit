@@ -1,3 +1,4 @@
+(require 'nnrss)
 (setq gnus-select-method '(nntp "news.gmane.org"))
 (setq user-full-name "Eric Luo")
 (setq user-mail-address "eric.wenbl@gmail.com")

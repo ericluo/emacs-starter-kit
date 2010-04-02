@@ -10,7 +10,7 @@
 
 (dolist (r `((?i (file . ,(concat dotfiles-dir "init.el")))
              (?b (file . ,(concat dotfiles-dir "starter-kit-bindings.el")))
-             (?g (file . ,(concat dotfiles-dir "/gtd/gtd.org.gpg")))
+             (?g (file . ,(concat dotfiles-dir "/gtd/gtd.org")))
              (?r (file . ,(concat dotfiles-dir "starter-kit-registers.el")))))
   (set-register (car r) (cadr r)))
 
