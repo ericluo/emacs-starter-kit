@@ -1,5 +1,19 @@
+(add-to-list 'load-path "~/workspace/org-mode/contrib/lisp")
+
 (require 'org-install)
+
+(require 'org-babel-init)
+(require 'org-babel-ruby)
+(require 'org-babel-R)
+(org-babel-load-library-of-babel)
+
+(require 'org-crypt)
+(setq org-crypt-key "Eric Luo")
+(add-hook 'before-save-hook 'org-encrypt-entries)
+
+(require 'remember)
 (org-remember-insinuate)
+
 (setq org-use-speed-commands t)
 (setq org-refile-targets
       '((org-agenda-files :maxlevel . 5)))
@@ -21,5 +35,6 @@
         ("Inbox" ?i "* %^{Topic} \n\%i%?\n%t\n" org-default-notes-file "Inbox")
         ("Note" ?n "\n* %U %^{Note} \n\%i%?\n%t\n" (concat org-directory "notes.org"))))
 (setq org-special-ctrl-a/e t)
+
 
 (provide 'starter-kit-org)
