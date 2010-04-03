@@ -9,6 +9,15 @@
 * Inbox
 #+CATEGORY: Inbox
 
+#+begin_src ruby
+  require 'date'
+  
+  "it's #{Date.today}"
+#+end_src
+
+#+results:
+: it's 2010-04-02
+  
 * Regulatory
 #+CATEGORY: Regulatory
 ** DONE 通知汉口银行准备网银攻击整改情况报告

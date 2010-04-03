@@ -107,5 +107,5 @@
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-z") 'set-mark-command)
 (global-set-key (kbd "C-c C-v") 'view-mode)
-(global-set-key (kbd "C-c C-z") 'pop-global-mark)
-(global-set-key (kbd "C-c C-o") 'occur)
+
+(global-set-key (kbd "C-M-y") 'scroll-other-window-down)
