@@ -1,4 +1,3 @@
-(require 'nnrss)
 (setq gnus-select-method '(nntp "news.gmane.org"))
 (setq user-full-name "Eric Luo")
 (setq user-mail-address "eric.wenbl@gmail.com")
@@ -27,17 +26,6 @@
   (setq gnus-sum-thread-tree-leaf-with-other "├─► ")
   (setq gnus-sum-thread-tree-single-leaf     "╰─► "))
 
-;; (setq gnus-summary-line-format
-;;       (concat
-;;        "%0{%U%R%z%}"
-;;        "%3{│%}" "%1{%d%}" "%3{│%}" ;; date
-;;        "  "
-;;        "%4{%-20,20f%}"               ;; name
-;;        "  "
-;;        "%3{│%}"
-;;        " "
-;;        "%1{%B%}"
-;;        "%s\n"))
 (setq gnus-summary-line-format
       (concat
        "%0{%U%R%z%}"

@@ -122,6 +122,58 @@
    folding。分别为fold-dwim-toggle， fold-dwim-hide-all，
    fold-dwim-show-all。
 
+** Gnus
+*** 快捷键使用
+    | Mode    | Key       | Comment                                 |
+    |---------+-----------+-----------------------------------------|
+    | Group   | AA        | 列出所有新闻组                          |
+    |         | u         | 订阅新闻组                              |
+    |         | L         | 显示订阅新闻组                          |
+    |         | l         | 显示有未读邮件或新闻的组                |
+    |         | u         | 退订新闻组，并未删除。L命令可以显示出来 |
+    |         | C-k       | 彻底删除                                |
+    |         | g         | 查看新邮件或消息                        |
+    |         | c         | 当前新闻组标记为已读                    |
+    |         | C         | 所有新闻组标记为已读                    |
+    |         | m         | 创建新邮件                              |
+    |         | a         | 发帖子                                  |
+    | Summary | a         | 发帖子(post article)                    |
+    |         | f         | 回帖子(follow up)                       |
+    |         | F         | 回帖子，含引用                   |
+    |         | d         | 标记为已读                              |
+    |         | ！        | 保留标记(ticked)，一直可见              |
+    |         | ?         | 休眠标记(dormant)，跟贴后可见           |
+    |         | r         | 回邮件                                  |
+    |         | R         | 回邮件，含引用                          |
+    |         | c         | 标记当前所有文章已读                    |
+    |         | M-g       | 刷新邮件组或新闻组                      |
+    |         | M-u       | 清除标记                                |
+    |         | SPC       | Article Buffer翻页                      |
+    |         | Backspace | Article Buffer向上翻页                  |
+    |         | / o       | 显示旧消                                |
+    |         | / a       | 查询给定作者消息                        |
+    |         | C-u / a   | 反向查询                                |
+    |         | / /       | 根据主题查询                            |
+    |         | / x       | 根据邮件头查询                          |
+    |         | / t       | 根据时间查询                            |
+    |         | / w       | remove previous query limit             |
+    |         | C-u / w   | remove all query limit                  |
+    |         | M-s       | 查询Article Buffer的内容                |
+    |         | M-r       | 向前查询Article Buffer内容              |
+    | Article | C-c C-c   | 发送                                    |
+    |         | C-c C-d   | 保存为草稿                              |
+    |         | C-c C-k   | 删除                                    |
+    |         | C-c C-m f | 粘贴附件                                |
+    |         | M-q       | 重排段落                                |
+    |         |           |                                         |
+
+    其他有关配置信息参见sachachua的文章[fn:1]
+
+** Misc Tips
+
+   当使用completion的时候，用M-v可以跳入completion list buffer，然后就
+   可以在completion list buffer中选择对应的选项了。
+
 * Ruby的安装与使用
 
 ** Ruby的安装
@@ -160,3 +212,8 @@
    安装sqlite3,需要先安装：
 
    sudo apt-get install libsqlite3-0 libsqlit3-dev sqlite3
+
+
+* Footnotes
+
+[fn:1] http://sachachua.com/notebook/wickedcool/wc-emacs-06-gnus.html
