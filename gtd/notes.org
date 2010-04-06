@@ -213,7 +213,15 @@
 
    sudo apt-get install libsqlite3-0 libsqlit3-dev sqlite3
 
+* unfuddle的git repository的使用
 
+  账户名称：ericluo
+  账户密码：ericsnow327
+  对应网址：ericluo.unfuddle.com
+
+  | git remote add unfuddle git@ericluo.unfuddle.com:ericluo/starterkit.git |
+  | git config remote.unfuddle.push refs/heads/master:refs/heads/master     |
+  | git push unfuddle master                                                |
 * Footnotes
 
 [fn:1] http://sachachua.com/notebook/wickedcool/wc-emacs-06-gnus.html
